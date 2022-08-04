@@ -1,6 +1,6 @@
 # Ontotext GraphDB set-up process
 
-Pre-configured tools/libraries/language(s): Python 3 + Java 8 + Maven 3.5 and GraphDB 10.x
+Pre-configured Docker Images of tools/libraries/language(s): Python 3 + Java 8 + Maven 3.5 and GraphDB 10.x
 
 
 ## You need to get your own free download version for docker to build successfully
