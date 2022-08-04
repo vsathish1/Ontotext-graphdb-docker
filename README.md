@@ -16,7 +16,7 @@ GRAPHDB_VERSION=10.0.2
 ├── docker-compose.yml
 ├── docker.env
 ├── Dockerfile
-├── graphdb-free-<GRAPHDB_VERSION>-dist.zip
+├── graphdb-free-<GRAPHDB_VERSION>-dist.zip or graphdb-ee-<GRAPHDB_VERSION>-dist.zip
 ├── Makefile (not recommended to use this)
 ├── README.md
 └── run.sh
