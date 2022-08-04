@@ -1,13 +1,11 @@
 FROM openkbs/jdk-mvn-py3
 
-MAINTAINER DrSnowbird <DrSnowbird@openkbs.org>
-MAINTAINER OpenKBS <openkbs.org@gmail.com>
 
 ################################
 #### ---- Environment Vars ----
 ################################
 ARG GRAPHDB_EDITION=${GRAPHDB_EDITION:-free}
-ARG GRAPHDB_VERSION=${GRAPHDB_VERSION:-8.3.0}
+ARG GRAPHDB_VERSION=${GRAPHDB_VERSION:-10.0.2}
 
 ARG GRAPHDB_PORT=${GRAPHDB_PORT:-7200}
 ARG GRAPHDB_DATA_DIR=${GRAPHDB_DATA_DIR:-"/graphdb-data"}
