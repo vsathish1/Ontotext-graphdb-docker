@@ -25,13 +25,13 @@ ENV GRAPHDB_DATA_DIR=${GRAPHDB_DATA_DIR}
 WORKDIR ${APP_PARENT_DIR}
 
 #### ---- (You need to download GraphDB tar from ontotext web side (using local host tar file) ----
+#### ---- NOTE: Place the graphDB.zip on the current diretory where the ./build.sh is running.
 COPY ${GRAPHDB_PACKAGE} /tmp
-RUN unzip /tmp/${GRAPHDB_PACKAGE} -d ${APP_PARENT_DIR} && \
-    ln -s ${APP_PARENT_DIR}/graphdb-${GRAPHDB_EDITION}-${GRAPHDB_VERSION} ${APP_PARENT_DIR}/graphdb && \
-    ln -s ${APP_PARENT_DIR}/graphdb-${GRAPHDB_EDITION}-${GRAPHDB_VERSION}/data ${DATA_DIR} && \
-    ls -al && \
-    rm /tmp/${GRAPHDB_PACKAGE}
-
+RUN sudo unzip /tmp/${GRAPHDB_PACKAGE} -d ${APP_PARENT_DIR} && \
+    sudo ln -s ${APP_PARENT_DIR}/graphdb-${GRAPHDB_EDITION}-${GRAPHDB_VERSION} ${APP_PARENT_DIR}/graphdb && \
+    sudo ln -s ${APP_PARENT_DIR}/graphdb-${GRAPHDB_EDITION}-${GRAPHDB_VERSION}/data ${DATA_DIR} && \
+    sudo ls -al && \
+    sudo rm /tmp/${GRAPHDB_PACKAGE}
 RUN export GRAPHDB_HOME=${GRAPHDB_HOME} && \
     export PATH=${GRAPHDB_HOME}/bin:$PATH
 
