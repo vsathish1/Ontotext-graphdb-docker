@@ -8,7 +8,8 @@ fi
 ###################################################
 #### **** Container package information ****
 ###################################################
-MY_IP=`ip route get 1|awk '{print$NF;exit;}'`
+#MY_IP=`ip route get 1|awk '{print$NF;exit;}'`
+MY_IP='10.0.1.1'
 DOCKER_IMAGE_REPO=`echo $(basename $PWD)|tr '[:upper:]' '[:lower:]'|tr "/: " "_" `
 imageTag=${1:-"openkbs/${DOCKER_IMAGE_REPO}"}
 #PACKAGE=`echo ${imageTag##*/}|tr "/\-: " "_"`
@@ -125,12 +126,13 @@ echo "docker exec -it ${instanceName} /bin/bash"
 function displayPortainerURL() {
     port=${1}
     echo "... Go to: http://${MY_IP}:${port}"
-    #firefox http://${MY_IP}:${port} &
-    if [ "`which google-chrome`" != "" ]; then
-        /usr/bin/google-chrome http://${MY_IP}:${port} &
-    else
-        firefox http://${MY_IP}:${port} &
-    fi
+    firefox http://${MY_IP}:${port} &
+    # Temporary commented the below block, since Chrome drive not available on Amazon-linux distributions
+    #if [ "`which google-chrome`" != "" ]; then
+    #    /usr/bin/google-chrome http://${MY_IP}:${port} &
+    #else
+    #    firefox http://${MY_IP}:${port} &
+    #fi
 }
 
 #### ---- Wait a bit to allow GraphDb to start ----
